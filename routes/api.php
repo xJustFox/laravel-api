@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\ProjectController;
 use App\Http\Controllers\Api\TypeController;
+use App\Http\Controllers\Api\LeadController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,8 @@ Route::get('/projects/{slug}', [ProjectController::class, 'show']);
 Route::get('/projects/type/{slug}', [ProjectController::class, 'type_projects']);
 
 Route::get('/types', [TypeController::class, 'index']); 
+
+Route::post('/contact-us', [LeadController::class, 'store']); 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
